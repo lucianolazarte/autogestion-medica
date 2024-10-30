@@ -1,6 +1,5 @@
 <template>
-    <div>
-        <div class="layout-content-container">
+    <div class="layout-content-container">
             <div class="grid">
                 <div class="col-6">
                     <RouterLink to="/master-data/pacientes">
@@ -25,10 +24,8 @@
                     </RouterLink>
                 </div>
             </div>
-        </div>
     </div>
 </template>
 
 <script setup lang="ts">
-    document.title = "Autogestión Médica - Master Data";
 </script>

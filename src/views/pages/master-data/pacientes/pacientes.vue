@@ -1,8 +1,17 @@
 <template>
     <div class="card">
-        <DataTable :value="pacientes" tableStyle="min-width: 50rem" v-model:editingRows="editingRows" editMode="row" dataKey="id" @row-edit-save="onRowEditSave">
+        <DataTable :value="pacientes" tableStyle="min-width: 50rem" v-model:editingRows="editingRows" editMode="row" dataKey="id" @row-edit-save="onRowEditSave" v-model:filters="filters"
+        :globalFilterFields="['paciente', 'edad', 'genero', 'servicio']">
             <template #header>
                 <h1 class="font-semibold text-xl mb-4">Pacientes</h1>
+                <div class="flex justify-end">
+                    <IconField>
+                        <InputIcon>
+                            <i class="pi pi-search" />
+                        </InputIcon>
+                        <InputText v-model="filters['global'].value" placeholder="Búsqueda" />
+                    </IconField>
+                </div>
             </template>
             <Column field="paciente" header="Paciente" sortable>
                 <template #editor="{ data, field }">
@@ -33,12 +42,11 @@
 
     import { usePacientes } from './usePacientes';
 
-    document.title = "Autogestión Médica - Pacientes";
-
     const {
     pacientes,
     editingRows,
-    onRowEditSave
+    onRowEditSave,
+    filters
     } = usePacientes();
 
     

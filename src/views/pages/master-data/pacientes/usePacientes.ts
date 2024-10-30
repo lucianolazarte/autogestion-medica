@@ -1,8 +1,13 @@
 import { ref } from "vue";
+import { FilterMatchMode } from '@primevue/core/api';
 
 export const usePacientes = () => {
 
     const pacientes = ref();
+
+    const filters = ref({
+      global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+  });
 
     const editingRows = ref([]);
 
@@ -53,7 +58,8 @@ export const usePacientes = () => {
 return {
     pacientes,
     editingRows,
-    onRowEditSave
+    onRowEditSave,
+    filters
 }
 
 };

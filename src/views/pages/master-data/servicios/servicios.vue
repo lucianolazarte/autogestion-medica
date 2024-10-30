@@ -33,8 +33,6 @@
     
     import { useServicios } from './useServicios';
 
-    document.title = "Autogestión Médica - Servicios";
-
     const {
     servicios,
     editingRows,
